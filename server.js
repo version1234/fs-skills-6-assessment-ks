@@ -27,15 +27,30 @@ catch (error){
     rollbar.error(error)
 }
  });
+
 app.get('/styles', function(req, res) {
+    try{ rollbar.log('get css')
     res.sendFile(path.join(__dirname, 'public/index.css'));
+}
+catch (error){
+    console.log(error)
+    rollbar.error(error)
+}
+    
 });
 
 
 
 
 app.get('/js', (req, res) => {
+    try{rollbar.log('index.js')
     res.sendFile(path.join(__dirname, 'public/index.js'));
+    }
+
+catch (error){
+    console.log(error)
+    rollbar.error(error)
+}
 
   });
 
