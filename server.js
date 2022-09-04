@@ -44,7 +44,7 @@ app.get('/js', (req, res) => {
 
 app.get('/api/robots', (req, res) => {
     try {
-        rollbar.error("bots error not defined")
+    //    rollbar.error("bots error not defined")
         res.status(200).send(botsArr)
     } catch (error) {
         console.log('ERROR GETTING BOTS', error)
