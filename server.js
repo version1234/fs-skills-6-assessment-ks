@@ -20,7 +20,7 @@ const {shuffleArray} = require('./utils')
 
 app.get("/", function(req, res){
    try{ rollbar.log('in get')
-    res.sendFile(path.join(__dirname, 'public/index.html'));
+    res.sendFile(path.join(__dirname, '/public/index.html'));
 }
 catch (error){
     console.log(error)
@@ -30,7 +30,7 @@ catch (error){
 
 app.get('/styles', function(req, res) {
     try{ rollbar.log('get css')
-    res.sendFile(path.join(__dirname, 'public/index.css'));
+    res.sendFile(path.join(__dirname, '/public/index.css'));
 }
 catch (error){
     console.log(error)
@@ -44,7 +44,7 @@ catch (error){
 
 app.get('/js', (req, res) => {
     try{rollbar.log('index.js')
-    res.sendFile(path.join(__dirname, 'public/index.js'));
+    res.sendFile(path.join(__dirname, '/public/index.js'));
     }
 
 catch (error){
@@ -104,7 +104,8 @@ app.post('/api/duel', (req, res) => {
             res.status(200).send('You lost!')
         } else {
             playerRecord.losses++
-            //playerRecord.wins++
+            // To see the player wins and update score
+            playerRecord.wins++
             res.status(200).send('You won!')
         }
     } catch (error) {
