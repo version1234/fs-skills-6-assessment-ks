@@ -21,7 +21,7 @@ test('Title shows up when page loads', async () => {
 
 
 
-test('Clicking upon Draw button allows choices for bot cards is displayed', async () => {
+test('Clicking upon Draw button allows choices for bot cards are displayed', async () => {
     
     const drawButton = await driver.findElement(By.id('draw')).click()
     console.log(drawButton)
