@@ -1,7 +1,10 @@
-const cors = require('cors');
+
 const express = require('express')
+const cors = require('cors')
 const path = require('path')
 const app = express()
+const {bots, playerRecord} = require('./data')
+const {shuffleArray} = require('./utils')
 app.use(express.json())
 app.use(cors())
 // include and initialize the rollbar library with your access token
@@ -15,12 +18,9 @@ var rollbar = new Rollbar({
 // record a generic message and send it to Rollbar
 rollbar.log('Duel Duo rollbar events')
 
-const {bots, playerRecord} = require('./data')
-const {shuffleArray} = require('./utils')
-
 app.get("/", function(req, res){
-   try{ rollbar.log('in get')
-    res.sendFile(path.join(__dirname, '/public/index.html'));
+   try{ rollbar.log('get in the App')
+    res.sendFile(path.join(__dirname,'/public/index.html'));
 }
 catch (error){
     console.log(error)
@@ -30,7 +30,7 @@ catch (error){
 
 app.get('/styles', function(req, res) {
     try{ rollbar.log('get css')
-    res.sendFile(path.join(__dirname, '/public/index.css'));
+    res.sendFile(path.join(__dirname,'/public/index.css'));
 }
 catch (error){
     console.log(error)
