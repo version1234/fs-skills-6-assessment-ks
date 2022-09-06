@@ -18,7 +18,7 @@ var rollbar = new Rollbar({
 // record a generic message and send it to Rollbar
 rollbar.log('Duel Duo rollbar events')
 
-app.get("/", function(req, res){
+app.get('/', function(req, res){
    try{ rollbar.log('get in the App')
     res.sendFile(path.join(__dirname,'/public/index.html'));
 }

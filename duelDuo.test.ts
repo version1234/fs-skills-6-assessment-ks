@@ -5,12 +5,12 @@ require('chromedriver')
 
 const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
 
-beforeEach(async () => {
-    driver.get('http://localhost:3000/')
+beforeAll(async () => {
+    await (await driver).get('http://localhost:3000/')
 })
 
 afterAll(async () => {
-    driver.quit()
+    await (await driver).quit()
 })
 
 test('Title shows up when page loads', async () => {
