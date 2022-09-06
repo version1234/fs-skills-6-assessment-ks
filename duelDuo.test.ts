@@ -5,7 +5,7 @@ require('chromedriver')
 
 const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
 
-beforeAll(async () => {
+beforeEach(async () => {
     await (await driver).get('http://localhost:3000/')
 })
 
