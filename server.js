@@ -13,7 +13,7 @@ var rollbar = new Rollbar({
   accessToken: '718ef89fce8d428e96597d4894b5c892',
   captureUncaught: true,
   captureUnhandledRejections: true,
-})
+});
 
 // record a generic message and send it to Rollbar
 rollbar.log('Duel Duo rollbar events')
@@ -65,7 +65,7 @@ app.get('/api/robots', (req, res) => {
         console.log('ERROR GETTING BOTS', error)
         res.sendStatus(400)
     }
-})
+});
 
 app.get('/api/robots/five', (req, res) => {
     try {
@@ -78,7 +78,7 @@ app.get('/api/robots/five', (req, res) => {
         console.log('ERROR GETTING FIVE BOTS', error)
         res.sendStatus(400)
     }
-})
+});
 
 app.post('/api/duel', (req, res) => {
     try {
@@ -112,7 +112,7 @@ app.post('/api/duel', (req, res) => {
         console.log('ERROR DUELING', error)
         res.sendStatus(400)
     }
-})
+});
 
 app.get('/api/player', (req, res) => {
     try {
@@ -121,14 +121,14 @@ app.get('/api/player', (req, res) => {
         console.log('ERROR GETTING PLAYER STATS', error)
         res.sendStatus(400)
     }
-})
+});
 
 app.delete('/api/player', (req, res) => {
     rollbar.critical('deleting player is not supported')
-})
+});
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`)
+  console.log(`Listening on port ${port}`);
 })
