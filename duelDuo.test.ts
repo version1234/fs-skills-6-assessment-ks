@@ -6,11 +6,11 @@ require('chromedriver')
 const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
 
 beforeEach(async () => {
-    await (await driver).get('http://localhost:3000/')
+    await driver.get('http://localhost:3000/')
 })
-
+// below commented to see the App page stay open.
 afterAll(async () => {
-    await (await driver).quit()
+     driver.quit()
 })
 
 test('Title shows up when page loads', async () => {

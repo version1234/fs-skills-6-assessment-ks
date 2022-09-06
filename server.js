@@ -60,7 +60,7 @@ catch (error){
 app.get('/api/robots', (req, res) => {
     try {
     //    rollbar.error("bots error not defined")
-        res.status(200).send(botsArr)
+        res.status(200).send(bots)
     } catch (error) {
         console.log('ERROR GETTING BOTS', error)
         res.sendStatus(400)
